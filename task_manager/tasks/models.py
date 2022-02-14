@@ -13,12 +13,6 @@ STATUS_CHOICES = (
 )
 
 
-class TaskHistory(models.Model):
-    task = models.ForeignKey('Task', on_delete=models.CASCADE, related_name='history')
-    old_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PENDING")
-    new_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PENDING")
-    changed_at = models.DateTimeField(auto_now=True)
-
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
@@ -61,6 +55,13 @@ class Task(models.Model):
             TaskHistory.objects.create(task=self, old_status='', new_status=self.status)
         if summary_history.first().new_status != self.status:
             TaskHistory.objects.create(task=self, old_status=summary_history.first().new_status, new_status=self.status)
+
+
+class TaskHistory(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='history')
+    old_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PENDING")
+    new_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PENDING")
+    changed_at = models.DateTimeField(auto_now=True)
 
 
 class UserTaskReportSetting(models.Model):
