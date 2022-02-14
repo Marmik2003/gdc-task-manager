@@ -3,7 +3,7 @@ from rest_framework import generics, authentication, permissions, status
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.response import Response
 
-from tasks.models import Task, TaskHistory
+from ..models import Task, TaskHistory
 from .filters import TaskFilter, TaskHistoryFilter
 from .serializers import TaskSerializer, TaskHistorySerializer
 

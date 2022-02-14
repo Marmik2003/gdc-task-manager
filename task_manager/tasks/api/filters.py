@@ -1,5 +1,5 @@
 import django_filters
-from tasks.models import STATUS_CHOICES, Task, TaskHistory
+from ..models import STATUS_CHOICES, Task, TaskHistory
 
 
 class TaskFilter(django_filters.FilterSet):
