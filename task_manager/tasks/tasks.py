@@ -29,5 +29,6 @@ def send_email_reports(*args, **kwargs):
                 message += complete_line
             send_mail('Your 24 hours Tasks Summary', message, 'marmik@thedataboy.com', [user_setting.user.email])
             user_setting.last_sent_at = datetime.datetime.now(timezone.utc).replace(hour=user_setting.report_time.hour, minute=user_setting.report_time.minute)
+            print("sent email to", user_setting.user.email)
             user_setting.save()
     return tasks_settings.count()
