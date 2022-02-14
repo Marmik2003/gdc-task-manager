@@ -19,10 +19,6 @@ class TaskHistory(models.Model):
     new_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="PENDING")
     changed_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        verbose_name_plural = "Task History"
-        app_label = "task_manager.tasks"
-
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
@@ -32,10 +28,6 @@ class Task(models.Model):
     created_date = models.DateTimeField(auto_now=True)
     deleted = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-
-    class Meta:
-        verbose_name_plural = "Tasks"
-        app_label = "task_manager.tasks"
 
     def __str__(self):
         return self.title
@@ -81,7 +73,3 @@ class UserTaskReportSetting(models.Model):
             self.last_sent_at = timezone.now().replace(hour=self.report_time.hour, minute=self.report_time.minute) - datetime.timedelta(days=1)
         obj = super().save(*args, **kwargs)
         return obj
-
-    class Meta:
-        verbose_name_plural = "User Task Report Settings"
-        app_label = "task_manager.tasks"
