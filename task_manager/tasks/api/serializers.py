@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-from ..models import Task, TaskHistory
+from task_manager.tasks.models import Task, TaskHistory
 
 
 class UserSerializer(serializers.ModelSerializer):
