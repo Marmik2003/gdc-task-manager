@@ -8,7 +8,7 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from task_manager.tasks.models import Task, TaskHistory
+from task_manager.tasks.models import Task, TaskHistory, UserTaskReportSetting
 from task_manager.tasks.tasks import send_email_reports
 
 
