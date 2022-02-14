@@ -8,8 +8,8 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from tasks.models import Task, UserTaskReportSetting
-from tasks.tasks import send_email_reports
+from task_manager.tasks.models import Task, TaskHistory
+from task_manager.tasks.tasks import send_email_reports
 
 
 User = get_user_model()
