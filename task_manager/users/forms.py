@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django.db import transaction
 from django import forms
 
-from tasks.models import UserTaskReportSetting
+from task_manager.tasks.models import UserTaskReportSetting
 
 
 class UserLoginForm(AuthenticationForm):
