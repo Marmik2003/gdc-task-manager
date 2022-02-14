@@ -86,7 +86,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "task_manager.users",
-    "task_manager.tasks.apps.TasksConfig",
+    "task_manager.tasks",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -95,7 +95,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "task_manager.contrib.sites.migrations"}
+MIGRATION_MODULES = {"tasks": "task_manager.tasks.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
