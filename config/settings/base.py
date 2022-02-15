@@ -108,6 +108,7 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_REDIRECT_URL = "/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "/users/login/"
+LOGOUT_REDIRECT_URL = '/users/login'
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
